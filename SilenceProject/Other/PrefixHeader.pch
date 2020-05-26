@@ -1,0 +1,138 @@
+//
+//  PrefixHeader.pch
+//  SilenceProject
+//
+//  Created by 甘延娇 on 2019/8/23.
+//  Copyright © 2019 黎小龙. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+/** 屏幕宽高 */
+#define SCREEN_W [UIScreen mainScreen].bounds.size.width
+#define SCREEN_H [UIScreen mainScreen].bounds.size.height
+
+/** Debug */
+#ifdef DEBUG
+#define LG_Log(...) NSLog(__VA_ARGS__)
+#else
+#define LG_Log(...) {}
+#endif
+
+/** 快速创建图片的宏*/
+#define UIImageMake(img) [UIImage imageNamed:img]
+
+/** 十六进制颜色的宏*/
+#define SXRGB16Color(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+#define SXRGBAColor(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+
+/** RGB颜色 */
+#define RGB_COLORWITHALPHA(r, g, b, a) [UIColor colorWithRed:r / 255.0 green:g / 255.0 blue:b / 255.0 alpha:a]
+#define RGB_COLOR(r, g, b) RGB_COLORWITHALPHA(r, g, b, 1)
+
+/** 随机颜色的宏 */
+#define random(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/255.0]
+#define Random_COLOR random(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+
+/** 由宽度按比率计算高度 */
+#define RATIO_H(height) height * SCREEN_W / 375.0
+/** 字体大小 */
+#define FONTSIZE(font) [UIFont systemFontOfSize:(SCREEN_W == 375.0 ? RATIO_H(font) : (RATIO_H(font) - 1))]
+/** 字体大小(加粗) */
+#define BOLD_FONTSIZE(font) [UIFont boldSystemFontOfSize:(SCREEN_W == 375.0 ? RATIO_H(font) : (RATIO_H(font) - 1))]
+
+/** 布局的间距 */
+/** 间距5 */
+#define SPACE_FIVE RATIO_H(5.0)
+/** 间距10 */
+#define SPACE_TEN RATIO_H(10.0)
+/** 间距15 */
+#define SPACE_FIFTEEN RATIO_H(15.0)
+/** 间距20 */
+#define SPACE_TWENTY RATIO_H(20.0)
+/** 一行Label控件的高度 */
+#define NORMAL_LABELH RATIO_H(20.0)
+
+/** 判断是否是iPhone X系列 */
+#define IS_iPhoneX   ([UIScreen instancesRespondToSelector:@selector(currentMode)] ?  (CGSizeEqualToSize(CGSizeMake(375, 812), [UIScreen mainScreen].bounds.size) || CGSizeEqualToSize(CGSizeMake(812, 375), [UIScreen mainScreen].bounds.size) || CGSizeEqualToSize(CGSizeMake(414, 896), [UIScreen mainScreen].bounds.size) || CGSizeEqualToSize(CGSizeMake(896, 414), [UIScreen mainScreen].bounds.size)) : NO)
+/** 导航栏高度 */
+#define NAVIGATION_H (CGFloat)(IS_iPhoneX ? 88.0f : 64.0f)
+/** TabBar高度 */
+#define TABBAR_H (CGFloat)(IS_iPhoneX ? (49.0f + 34.0f) : (49.0f))
+/** 状态栏高度 */
+#define STATUSBAR_H (CGFloat)(IS_iPhoneX ? (20.0f + 24.0f) : (20.0f))
+
+
+
+/** 字符串是否为空 */
+#define kStringIsEmpty(str) ([str isKindOfClass:[NSNull class]] || str == nil || [str length] < 1 ? YES : NO )
+/** 数组是否为空 */
+#define kArrayIsEmpty(array) (array == nil || [array isKindOfClass:[NSNull class]] || array.count == 0)
+/** 字典是否为空 */
+#define kDictIsEmpty(dic) (dic == nil || [dic isKindOfClass:[NSNull class]] || dic.allKeys == 0)
+/** 是否是空对象 */
+#define kObjectIsEmpty(_object) (_object == nil \
+|| [_object isKindOfClass:[NSNull class]] \
+|| ([_object respondsToSelector:@selector(length)] && [(NSData *)_object length] == 0) \
+|| ([_object respondsToSelector:@selector(count)] && [(NSArray *)_object count] == 0))
+
+
+//----------------------图片相关----------------------------
+//读取本地图片
+#define LOADIMAGE(file,ext) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:file ofType:ext]]
+//定义UIImage对象
+#define IMAGE(A) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:A ofType:nil]]
+//定义UIImage对象
+#define ImageNamed(_pointer) [UIImage imageNamed:_pointer]
+//可拉伸的图片
+#define ResizableImage(name,top,left,bottom,right) [[UIImage imageNamed:name] resizableImageWithCapInsets:UIEdgeInsetsMake(top,left,bottom,right)]
+#define ResizableImageWithMode(name,top,left,bottom,right,mode) [[UIImage imageNamed:name] resizableImageWithCapInsets:UIEdgeInsetsMake(top,left,bottom,right) resizingMode:mode]
+//建议使用前两种宏定义,性能高于后者
+//----------------------图片相关----------------------------
+
+//----------------------视图相关----------------------------
+//设置需要粘贴的文字或图片
+#define PasteString(string)   [[UIPasteboard generalPasteboard] setString:string];
+#define PasteImage(image)     [[UIPasteboard generalPasteboard] setImage:image];
+
+//得到视图的left top的X,Y坐标点
+#define VIEW_TX(view) (view.frame.origin.x)
+#define VIEW_TY(view) (view.frame.origin.y)
+
+//得到视图的right bottom的X,Y坐标点
+#define VIEW_BX(view) (view.frame.origin.x + view.frame.size.width)
+#define VIEW_BY(view) (view.frame.origin.y + view.frame.size.height )
+
+//得到视图的尺寸:宽度、高度
+#define VIEW_W(view)  (view.frame.size.width)
+#define VIEW_H(view)  (view.frame.size.height)
+//得到frame的X,Y坐标点
+#define FRAME_TX(frame)  (frame.origin.x)
+#define FRAME_TY(frame)  (frame.origin.y)
+//得到frame的宽度、高度
+#define FRAME_W(frame)  (frame.size.width)
+#define FRAME_H(frame)  (frame.size.height)
+//----------------------视图相关----------------------------
+
+/** 时间的处理 */
+#import "NSDate+Extensions.h"
+/** 数据刷新 */
+#import <MJRefresh.h>
+/** 数据转模型 */
+#import <MJExtension.h>
+/** 加载图片，带缓存 */
+#import <UIImageView+WebCache.h>
+/** 自动布局 */
+#import <Masonry.h>
+/** 指示器HUD */
+#import "LHBProgressHUD.h"
+/** 数据请求 */
+#import "LGHttpRequest.h"
+/** view的分类 */
+#import "UIView+Frame.h"
+
+#endif /* PrefixHeader_pch */

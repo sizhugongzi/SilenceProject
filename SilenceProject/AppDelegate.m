@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "LGTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,19 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    // 初始化主window
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    LGTabBarController *mainTabBarController = [LGTabBarController new];
+    self.window.rootViewController = mainTabBarController;
+    [self.window makeKeyAndVisible];
+    
+    // 如果不是模拟器
+    if (!TARGET_IPHONE_SIMULATOR) {
+        sleep(2);
+    }
+    
+    
     return YES;
 }
 

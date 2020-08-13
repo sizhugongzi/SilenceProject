@@ -2,8 +2,8 @@
 //  LGBaseTopicTableViewController.m
 //  LGBuDeJie
 //
-//  Created by 甘延娇 on 2019/3/22.
-//  Copyright © 2019 itheima. All rights reserved.
+//  Created by Silence on 2017/3/13.
+//  Copyright © 2017 Silence All rights reserved.
 //
 
 #import "LGBaseTopicTableViewController.h"

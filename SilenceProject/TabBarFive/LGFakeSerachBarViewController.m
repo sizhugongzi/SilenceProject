@@ -2,8 +2,8 @@
 //  LGFakeSerachBarViewController.m
 //  SilenceProject
 //
-//  Created by 甘延娇 on 2019/9/18.
-//  Copyright © 2019 黎小龙. All rights reserved.
+//  Created by Silence on 2017/3/13.
+//  Copyright © 2017 Silence All rights reserved.
 //
 
 #import "LGFakeSerachBarViewController.h"

@@ -1101,10 +1101,10 @@
 		E7A948862316101200660B90 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				E7A948872316101200660B90 /* NSDate+Extensions.m */,
-				E7A948882316101200660B90 /* UIView+Frame.m */,
 				E7A948892316101200660B90 /* NSDate+Extensions.h */,
+				E7A948872316101200660B90 /* NSDate+Extensions.m */,
 				E7A9488A2316101200660B90 /* UIView+Frame.h */,
+				E7A948882316101200660B90 /* UIView+Frame.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";

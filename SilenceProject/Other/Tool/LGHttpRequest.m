@@ -2,8 +2,8 @@
 //  LGHttpRequest.m
 //  SilenceProject
 //
-//  Created by 甘延娇 on 2019/8/23.
-//  Copyright © 2019 黎小龙. All rights reserved.
+//  Created by Silence on 2017/8/23.
+//  Copyright © 2017 Silence.L All rights reserved.
 //
 
 #import "LGHttpRequest.h"

@@ -2,8 +2,8 @@
 //  UIView+Frame.h
 //  LGBuDeJie
 //
-//  Created by Silence on 2017/3/13.
-//  Copyright © 2019 itheima. All rights reserved.
+//  Created by Silence on 2017/8/23.
+//  Copyright © 2017 Silence.L All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

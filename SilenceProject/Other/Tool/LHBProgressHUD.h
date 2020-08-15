@@ -2,8 +2,8 @@
 //  LHBProgressHUD.h
 //  mf
 //
-//  Created by 廖汉斌 on 2019/1/6.
-//  Copyright © 2019年 廖汉斌. All rights reserved.
+//  Created by Silence on 2017/8/23.
+//  Copyright © 2017 Silence.L All rights reserved.
 //
 
 #import <MBProgressHUD/MBProgressHUD.h>

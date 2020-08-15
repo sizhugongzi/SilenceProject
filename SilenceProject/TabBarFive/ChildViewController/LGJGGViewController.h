@@ -2,8 +2,8 @@
 //  LGJGGViewController.h
 //  SilenceProject
 //
-//  Created by Silence.L on 2019/11/25.
-//  Copyright © 2019 黎小龙. All rights reserved.
+//  Created by Silence on 2017/8/23.
+//  Copyright © 2017 Silence.L All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

@@ -7,8 +7,7 @@ target 'SilenceProject' do
 
   # Pods for SilenceProject
 
-	pod "MWPhotoBrowser"
-	pod 'Masonry'
+  pod 'Masonry'
   pod 'MJRefresh'
   pod 'AFNetworking'
   pod 'MBProgressHUD'
@@ -17,6 +16,7 @@ target 'SilenceProject' do
   pod 'SDCycleScrollView'
   pod 'SGPagingView'
   pod ‘IQKeyboardManager’
+  pod 'JXCategoryView'
   pod 'JXCategoryView'
 
 end

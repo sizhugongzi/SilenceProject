@@ -10,7 +10,7 @@
 
 @interface LGViewController ()
 
-@property(nonatomic,strong)CAGradientLayer *gradientLayer;
+@property (nonatomic,strong) CAGradientLayer *gradientLayer;
 
 @end
 
@@ -27,7 +27,7 @@
     [self setLabel];
 }
 
-- (void)setupBtn{
+- (void)setupBtn {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setTitle:@"nihao" forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor cyanColor] forState:UIControlStateNormal];
@@ -98,7 +98,7 @@
 
 
 // 随机颜色方法
--(UIColor *)randomColor{
+- (UIColor *)randomColor{
     CGFloat r = arc4random_uniform(256) / 255.0;
     CGFloat g = arc4random_uniform(256) / 255.0;
     CGFloat b = arc4random_uniform(256) / 255.0;
@@ -106,7 +106,7 @@
 }
 
 // 定时器触发方法
--(void)textColorChange {
+- (void)textColorChange {
     _gradientLayer.colors = @[(id)[self randomColor].CGColor,
                               (id)[self randomColor].CGColor,
                               (id)[self randomColor].CGColor,
